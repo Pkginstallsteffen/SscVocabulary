@@ -1,6 +1,9 @@
 # Use the official Python image from the Docker Hub
 FROM python:3.9-slim
 
+# Install OpenJDK 17 (Java) in the container
+RUN apt-get update && apt-get install -y openjdk-17-jdk
+
 # Set the working directory inside the container
 WORKDIR /app
 
@@ -19,5 +22,8 @@ ENV BOT_TOKEN=${BOT_TOKEN}
 ENV MW_API_KEY=${MW_API_KEY}
 ENV THESAURUS_API_KEY=${THESAURUS_API_KEY}
 
-# Run your bot or application
+# Verify Java installation
+RUN java -version
+
+# Run your Python application
 CMD ["python", "main.py"]
