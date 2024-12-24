@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: my-web-app
+    env: docker  # Specifies that you're using Docker for deployment
+    buildCommand: ""  # No specific build command needed, Docker handles the build
+    startCommand: "docker-compose up"  # Use Docker Compose to start your app
+    plan: free  # Choose the free plan for your deployment (or another plan based on your needs)
+    branch: main  # Specify the branch that triggers deployment, typically 'main' or 'master'
